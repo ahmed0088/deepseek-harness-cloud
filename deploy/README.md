@@ -34,3 +34,13 @@ docker run --rm -p 3080:3080 \
 ```
 
 For production, put the container behind HTTPS ingress and keep `PUBLIC_URL` and `TRUSTED_HOSTS` aligned with the public hostname. Forward WebSocket upgrades and preserve the browser-facing `Host` header.
+
+## GitHub Codespaces
+
+For a no-install browser session, open the repository, choose **Code → Codespaces → Create codespace on main**. The dev container installs dependencies and builds the Harness. In the Codespaces terminal, run:
+
+```sh
+./deploy/start-codespace.sh
+```
+
+GitHub will forward port `3080` over HTTPS. Make the port public only if you need to access it from a different browser or share it; otherwise keep it private. Codespaces personal Free accounts include 120 compute hours and 15 GB-month storage, but a codespace stops after inactivity and has a maximum lifetime, so it is not a 24/7 deployment.

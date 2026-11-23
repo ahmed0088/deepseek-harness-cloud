@@ -79,3 +79,13 @@ Third-party dependencies and their licenses are disclosed in [THIRD_PARTY_NOTICE
 ## Cloud deployment in this repository
 
 This public repository keeps the upstream documentation Pages workflow and adds a container for the full web application. GitHub Pages hosts the documentation at `https://ahmed0088.github.io/deepseek-harness-cloud/`; it does not host the AI runtime itself. See [`deploy/README.md`](deploy/README.md) for the container contract and required cloud environment variables.
+
+## Browser-only launch with GitHub Codespaces
+
+If you cannot install software on your computer, open this repository in GitHub Codespaces. Codespaces runs the application in GitHub's cloud and forwards port `3080` to an HTTPS browser URL. In the Codespaces terminal, run:
+
+```sh
+./deploy/start-codespace.sh
+```
+
+The free personal GitHub plan currently includes a monthly Codespaces allowance. Codespaces stops after its idle timeout and has a maximum lifetime, so this is a browser-accessible development session rather than an always-on public service. See [`deploy/README.md`](deploy/README.md) for the permanent-hosting distinction.

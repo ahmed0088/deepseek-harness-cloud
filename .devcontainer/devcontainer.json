@@ -1,0 +1,17 @@
+{
+  "name": "DeepSeek Harness Cloud",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-24-bookworm",
+  "forwardPorts": [3080],
+  "portsAttributes": {
+    "3080": {
+      "label": "DeepSeek Harness Web UI",
+      "onAutoForward": "openBrowser",
+      "protocol": "https"
+    }
+  },
+  "remoteEnv": {
+    "DSH_TELEMETRY_DISABLED": "1",
+    "DSH_HOME": "/workspaces/${localWorkspaceFolderBasename}/.dsh"
+  },
+  "postCreateCommand": "corepack enable && corepack prepare pnpm@11.28.5 --activate && pnpm install --frozen-lockfile && pnpm run build:official"
+}
