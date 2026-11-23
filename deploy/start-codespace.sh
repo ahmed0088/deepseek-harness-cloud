@@ -1,6 +1,18 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+echo "Preparing DeepSeek Harness (the first run can take several minutes)..."
+corepack enable
+corepack prepare pnpm@11.28.5 --activate
+if [[ ! -d node_modules ]]; then
+  echo "Installing dependencies..."
+  pnpm install --frozen-lockfile
+fi
+if [[ ! -f apps/cli/lib/bin.js ]]; then
+  echo "Building the Harness..."
+  pnpm run build:official
+fi
+
 port="${PORT:-3080}"
 host="$(hostname -i | awk '{print $1}')"
 name="${CODESPACE_NAME:-}"

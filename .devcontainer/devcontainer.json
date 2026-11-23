@@ -13,5 +13,5 @@
     "DSH_TELEMETRY_DISABLED": "1",
     "DSH_HOME": "/workspaces/${localWorkspaceFolderBasename}/.dsh"
   },
-  "postCreateCommand": "corepack enable && corepack prepare pnpm@11.28.5 --activate && pnpm install --frozen-lockfile && pnpm run build:official"
+  "postCreateCommand": "corepack enable && corepack prepare pnpm@11.28.5 --activate"
 }
